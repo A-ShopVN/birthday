@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Your Birthday Wishes!</title>
+    <style>
+        body {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            padding: 20px; /* Thêm padding để tránh nội dung chạm mép màn hình */
+        }
+        h1 {
+            color: #61dafb;
+            text-align: center;
+        }
+        textarea, input {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            width: 100%;
+            max-width: 500px; /* Đặt chiều rộng tối đa cho input và textarea */
+            border: 1px solid #61dafb;
+            padding: 10px;
+            font-size: 1em;
+            margin-top: 10px;
+            resize: none; /* Ngăn người dùng thay đổi kích thước */
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #61dafb;
+            color: #2d2d2d;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s; /* Hiệu ứng chuyển màu khi hover */
+        }
+        button:hover {
+            background-color: #21a1f1; /* Thay đổi màu khi hover */
+        }
+        .output {
+            margin-top: 20px;
+            background-color: #1e1e1e;
+            color: #61dafb;
+            width: 100%;
+            max-width: 500px; /* Đặt chiều rộng tối đa cho output */
+            padding: 15px;
+            border: 1px solid #61dafb;
+            word-wrap: break-word; /* Đảm bảo từ không bị tràn ra ngoài */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Send Your Birthday Wishes!</h1>
+    <p>Nhập tên của bạn và lời chúc của bạn vào đây:</p>
+
+    <input type="text" id="nameInput" placeholder="Nhập tên của bạn">
+    <textarea id="wishInput" placeholder="Nhập lời chúc của bạn , lời chúc của bạn sẽ được gửi tới DangCanh" rows="4"></textarea>
+    <button onclick="runCode()">Gửi lời chúc</button>
+
+    <div id="output" class="output"></div>
+
+    <script>
+        function runCode() {
+            let name = document.getElementById("nameInput").value;
+            let wish = document.getElementById("wishInput").value;
+
+            // Kiểm tra xem người dùng đã nhập đủ thông tin chưa
+            if (name === "" || wish === "") {
+                document.getElementById("output").innerHTML = "Vui lòng nhập đầy đủ tên và lời chúc!";
+                return;
+            }
+
+            // Hiển thị kết quả với tên và lời chúc của người dùng
+            document.getElementById("output").innerHTML = `
+                <p><strong>${name}</strong> đã gửi lời chúc: "${wish}"</p>
+                <p>Cảm ơn bạn, <strong>${name}</strong>, vì lời chúc tuyệt vời! 😊🎉</p>
+                <p>Cảm ơn tấm lòng ấm áp của bạn và lời chúc sinh nhật ý nghĩa. Sự quan tâm của bạn khiến cho ngày đặc biệt này càng thêm ý nghĩa.</p>
+                <h3 style="display:grid; place-items:center;">Để thêm ý nghĩa hơn bạn hãy donate cho tôi:) <img src="môm.jpg" style="width:200px; height:200px;"></h3>
+            `;
+        }
+    </script>
+
+</body>
+</html>
